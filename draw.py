@@ -2,13 +2,15 @@ import pygame
 import math
 from datetime import datetime
 
-Clock_Noise = pygame.mixer.Sound(clock-ticking.mp3)
 
+pygame.mixer.init()
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 clock = pygame.time.Clock()
 center_x, center_y = 325, 240
 radius = 230
+Clock_Noise = pygame.mixer.Sound("clock-ticking.wav")
+last_second = +55
 
 run_flag = True
 while run_flag is True:
@@ -20,6 +22,12 @@ while run_flag is True:
 
     pygame.draw.circle(screen, (128, 128, 128), (325, 240), 230)
     pygame.draw.circle(screen, (15, 50, 128), (325, 240), 6)
+
+    now = datetime.now()
+
+    if now.second != last_second:
+        Clock_Noise.play()
+        last_second = now.second
 
     for i in range(60):
         angle = i * (2 * math.pi / 60)
