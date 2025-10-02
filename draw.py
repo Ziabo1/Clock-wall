@@ -10,7 +10,8 @@ clock = pygame.time.Clock()
 center_x, center_y = 325, 240
 radius = 230
 Clock_Noise = pygame.mixer.Sound("clock-ticking.wav")
-last_second = +55
+Hour_Noise = pygame.mixer.Sound("Hour-time-sound.wav")
+last_second = -600
 
 run_flag = True
 while run_flag is True:
@@ -24,6 +25,9 @@ while run_flag is True:
     pygame.draw.circle(screen, (15, 50, 128), (325, 240), 6)
 
     now = datetime.now()
+
+    if now.second == 0 and now.minute == 0:
+        Hour_Noise.play()
 
     if now.second != last_second:
         Clock_Noise.play()
