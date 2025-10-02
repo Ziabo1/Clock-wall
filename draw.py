@@ -2,6 +2,7 @@ import pygame
 import math
 from datetime import datetime
 
+Clock_Noise = pygame.mixer.Sound(clock-ticking.mp3)
 
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
@@ -52,8 +53,6 @@ while run_flag is True:
                   hour_length * math.sin(math.radians(angle1 - 90))]
     end_position = (center_x + end_offset[0], center_y + end_offset[1])
     pygame.draw.line(screen, (0, 0, 0), (center_x, center_y), end_position, 8)
-
-    if (datetime.hour range(1-12)):
 
     pygame.display.flip()
 pygame.quit()
