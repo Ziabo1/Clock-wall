@@ -53,7 +53,7 @@ while run_flag is True:
         x = center_x + int(radius * math.cos(angle))
         y = center_y + int(radius * math.sin(angle))
 
-        if i % 5 == 0:
+        if i % 5 == 0: #Hver femte markering bliver stor  
             pygame.draw.rect(screen, (0, 0, 0), (x-5, y-5, 10, 10))
         else:
             pygame.draw.rect(screen, (0, 0, 0), (x-2, y-2, 4, 4))
