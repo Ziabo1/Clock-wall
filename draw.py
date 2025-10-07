@@ -19,7 +19,7 @@ Clock_Noise = pygame.mixer.Sound("clock-ticking.wav")
 Hour_Noise = pygame.mixer.Sound("Hour-time-sound.wav")
 
 # Variabel til at holde styr på sidste sekund (for at undgå gentagelser)
-last_second = -600
+last_second = -1
 
 # Main funktion
 run_flag = True
@@ -45,7 +45,7 @@ while run_flag is True:
     # Afspil tikkelyd hvert sekund
     if now.second != last_second:
         Clock_Noise.play()
-        last_second = now.second
+     
 
     # Tegner minus og skund markeringer for urskiven
     for i in range(60):
@@ -56,7 +56,7 @@ while run_flag is True:
         if i % 5 == 0:
             pygame.draw.rect(screen, (0, 0, 0), (x-5, y-5, 10, 10))
         else:
-            pygame.draw.rect(screen, (0, 255, 0), (x-2, y-2, 4, 4))
+            pygame.draw.rect(screen, (0, 0, 0), (x-2, y-2, 4, 4))
 
     # Tegner sekundviseren
     s = datetime.now().second
